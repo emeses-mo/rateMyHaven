@@ -1,0 +1,83 @@
+.altimage img{
+    width: 12vw;
+
+}
+.mainpage_cards{
+    background-color: #e6fafd;
+    height: 100vh;
+}
+.mainpage_cards h2 {
+    text-align: center;
+}
+.main_card{
+    border: 2px solid blue;
+    text-align: center;
+    padding: 2%;
+    background-color: white;
+    margin-top: 5%;
+    
+}
+.main_cardcontainer{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1%;
+    background-color: #e6fafd;
+}
+.main_card h2{
+    font-family: 'Roboto';
+    color: #20b1e9;
+
+}
+.main_card p{
+    font-family: 'Roboto';
+    margin-top: 4%;
+}
+.main_card button{
+    border: none;
+    width: 100%;
+    padding: 5%;
+    font-size: 20px;
+    background-color: #20b1e9;
+    margin-top: 12%;
+    margin-bottom: 12%;
+}
+.main_card button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.main_divider{
+    font-family: 'Roboto',sans-serif;
+    margin: 1%;
+    text-align: center;
+}
+.main_unicard{
+    text-align: center;
+    padding: 1%;
+    background-color: white;
+    font-family: 'Roboto',sans-serif;
+}
+
+.main_unicard img{
+    width: 260px;
+    height: 180px;
+    
+}
+.main_unicard h3{
+    font-size: 20px;
+    margin: 1%;
+}
+.main_unicard p{
+    color: #20b1e9;
+}
+.main_unicard button{
+    width: 100%;
+    padding: 4%;
+    border: none;
+    background-color: #20b1e9;
+    margin: 1%;
+    font-size: 18px;
+}
+.main_unicard button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}

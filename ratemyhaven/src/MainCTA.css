@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+.maincta_container{
+    /* background: url('./Images/blob.svg') no-repeat;
+    background-size:contain; */
+    height: 100vh;
+    width: 100%;
+    display:  flex;
+    background-color: #22aee9;
+
+}
+.cta_img img{
+    width: 30vw;
+}
+.cta_img{
+    flex: 0.5;
+    text-align: center;
+   margin: auto;
+}
+.cta_action{
+    flex: 0.5;
+  
+    text-align: center;
+    background: url('./Images/blob.svg') no-repeat;
+
+  
+   height: 100%;
+}
+.cta_action_text{
+    font-family: 'Roboto', sans-serif;
+    
+  
+  margin-top: 40%;
+  
+  
+  
+ 
+  
+
+}
+.cta_action_text h1{
+    font-size: 40px;
+    margin: 1%;
+
+}
+.cta_action_text p{
+    margin: 1%;
+}
+.cta_action input{
+    width: 70%;
+    padding: 1.2%;
+    padding-left: 3%;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    margin: 1%;
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+    
+}
+input::-webkit-input-placeholder {
+/* color: black; Change the placeholder color */
+    opacity: 0.5; /*Change the opacity between 0 and 1*/
+}
+.searchResult{
+    background-color: white;
+    width: 69%;
+    text-align: left;
+    border-radius: 8px;
+    margin: auto;
+}
+.resultBox{
+    padding: 1%;
+    border-bottom: 1px solid gray;
+    
+    
+}
+.resultBox:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}

@@ -1,0 +1,37 @@
+.header{
+    display: flex;
+    height: 9vh;
+
+  
+}
+.logo{
+    flex: 0.5;
+    
+}
+.logo img{
+    width: 150px;
+   margin-left: 10%;
+}
+.header-nav img{
+    width: 30px;
+    height: 30px;
+}
+.header-nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.header-nav li{
+    list-style-type: none;
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+.header-nav{
+    margin-top: 1%;
+    width:  100%;
+    flex: 0.5;
+    
+}
+.no-dec{
+    text-decoration: none;
+}
