@@ -35,3 +35,16 @@
 .no-dec{
     text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .logo img{
+        width: 45vw;
+    }
+    .logo{
+        flex: 1;
+        text-align: center;
+    }
+    .header-nav{
+        display: none;
+    }
+  }

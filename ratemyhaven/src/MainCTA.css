@@ -76,7 +76,38 @@ input::-webkit-input-placeholder {
     
     
 }
+
+.resultBox p{
+    text-decoration: none;
+    color: black;
+    padding: 1%;
+}
 .resultBox:hover{
     opacity: 0.9;
     cursor: pointer;
 }
+.resultbox_textBelow p{
+    color: #22aee9;
+}
+
+@media only screen and (max-width: 600px) {
+   .maincta_container{
+       display: block;
+   }
+   .cta_img img{
+       width: 100vw;
+       padding: 1%;
+       margin-top: 15%;
+       
+   }
+   .cta_action_text h1{
+       font-size: 50px;
+   }
+   .resultBox{
+       margin-bottom: 50%;
+   }
+   .main_cta{
+       margin-bottom: 50%;
+       position: relative;
+   }
+  }

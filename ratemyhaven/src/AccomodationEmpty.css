@@ -1,0 +1,23 @@
+.acc_main{
+    text-align: center;
+    background-color: #22aee9;
+    height: 100vh;
+    
+}
+.acc_content{
+    font-family: 'Roboto',sans-serif;
+    padding: 40vh;
+}
+.acc_content button{
+    width: 25%;
+    padding: 1%;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Roboto',sans-serif;
+    margin: 2%;
+    font-size: 17px;
+}
+.acc_content button:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}

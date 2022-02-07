@@ -81,3 +81,15 @@
     cursor: pointer;
     opacity: 0.7;
 }
+
+@media only screen and (max-width: 600px) {
+   .main_cardcontainer{
+       flex-direction: column;
+       
+   }
+   .mainpage_cards{
+      
+       
+   }
+  
+  }

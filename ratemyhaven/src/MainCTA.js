@@ -57,15 +57,21 @@ setUninames(uniData)
             <div className="resultBox">
               {filteredData.slice(0,5).map((uname)=>{
                 return (
-                  <Link to="/unidisplay" onClick={handleSearchClick(uname.Name)}>
+                  <Link className='no-dec' to="/university-listings" onClick={handleSearchClick(uname.Name)}>
                   <p >{uname.Name}</p>
                   </Link> 
+                  
 
                 )
                 
                  
               })}
+              <div className="resultbox_textBelow">
+              <Link to="/service-addUni" className='no-dec'> <p >Cant Find Your University?   Add it now!</p></Link>
+              </div>
+             
             </div>
+            
           )}
         </div>
         </div>
