@@ -45,6 +45,11 @@ function App() {
      <AddAccomodation />
      
     </Route>
+    <Route path="/test">
+      {/* <Header />
+     <AddAccomodation /> */}
+     <Test />
+    </Route>
       <Route path="/user-signup">
      
          <UserSignup />
