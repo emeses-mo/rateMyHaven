@@ -1,0 +1,120 @@
+
+body{
+    background-color: #EFFFFD;
+}
+.ar_header{
+    display: flex;
+    padding: 0.5% 2%;
+    
+    align-items:center ;
+    justify-content: space-between;
+    border-bottom: 1px solid #A6ABA1;
+}
+.ar_logo img{
+    width: 150px;
+}
+
+.ar_wrapper{
+    display: flex;
+    padding:4%;
+}
+.ar_accDetails{
+    flex: 0.4;
+    background-color: #c7eeff;
+    border-radius: 12px;
+    font-family: 'Smoolthan';
+    height: 80vh;
+}
+.acc_info3 img{
+width: 25vw;
+border-radius: 12px;    
+}
+.ar_Reviews{
+        flex: 0.6;
+     
+
+}
+.acc_info1{
+    text-align: center;
+    padding: 1%;
+    font-size: 18px;
+}
+.acc_info2{
+display: flex;
+justify-content: space-between;
+padding: 2% 8%;
+color: #686B5C;
+font-size: 17px;
+}
+.acc_info3{
+    margin: 2% auto;
+   
+    text-align: center;
+}
+.non_empty_reviews{
+padding: 2%;
+}
+.reviewCard{
+   background-color: white;
+    display: flex;
+    font-family: 'Smoolthan',sans-serif;
+    border-radius: 12px;
+    height: 100px;
+    margin-bottom   : 2%;
+}
+.reviewPrimary{
+    flex: 0.3;
+    text-align: center;
+    padding: 2%;
+    border-right: #686B5C 1px solid;
+}
+.reviewSecondary{
+    flex: 0.7;
+    padding: 1%;
+}
+.add_review{
+    text-align: center;
+}
+.er_cta img{
+    width: 30vw;
+}
+.er_cta{
+    text-align: center;
+}
+.empty_reviews{
+    text-align: center;
+    font-family: 'Smoolthan';
+}
+.reviewPrimary{
+    display: flex;
+    
+}
+.reviewer_image img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+}
+.reviewer_image{
+    flex: 0.1;
+}
+.reviewer_info{
+    flex: 0.9;
+    text-align: left;
+    padding-left: 10%;
+    align-items: center;
+    padding-top: 2%;
+}
+.rv_avgrating{
+    display: flex;
+    align-items: center;
+   
+}
+.avgimg{
+    margin-left: 2%;
+}
+.rv_avgrating img{
+    width: 15px;
+    
+    
+}

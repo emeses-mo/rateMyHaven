@@ -1,0 +1,101 @@
+body{
+    background-color: white;
+    font-family: 'Smoolthan ';
+}
+.review_wrapper{
+  background-color: #c7eeff;
+    width: 40vw;
+    padding: 2%;
+    border-radius: 12px;
+    font-family: 'Smoolthan';
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+.review_container{
+   
+    display: flex;
+    justify-content: center;
+}
+.review_box{
+    
+}
+.reviewip h2{
+   padding: 1%;
+}
+.reviewip input{
+    padding: 1% ;
+    border: none;
+    background-color: white;
+    width: 70%;
+    border-radius: 8px;
+    outline: none;
+}
+.reviewip textarea{
+    width: 100%;
+    padding: 1%;
+    font-family: 'Smoolthan';
+    border-radius: 8px;
+    border: none;
+    background-color: white;
+    resize: none;
+    outline: none;
+}
+input[type="radio"]{
+    
+}
+.rating_component{
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+    align-items: center;
+}
+.star{
+    transition: color 200ms;
+    cursor: pointer;
+}
+.action_buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel{
+   
+    width: 50%;
+    
+}
+.cancel button{
+    padding: 4%;
+width: 40%;
+font-family: 'Smoolthan';
+border-radius: 8px;
+font-size: 18px;
+margin-top: 4%;
+border: none;
+
+background-color: rgb(150, 16, 16);
+color: white;
+}
+.post{
+    width: 50%;
+}
+.post button{
+    padding: 4%;
+width: 40%;
+float: right;
+border: none;
+color: white;
+background-color: #22AEE9;
+font-family: 'Smoolthan';
+border-radius: 8px;
+font-size: 18px;
+margin-top: 4%;
+}
+.post button:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+.cancel button:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    border: 1px solid red;
+}

@@ -11,6 +11,8 @@ import BackDoorAddUnis from './BackDoorAddUnis';
 import DisplayListings from './DisplayListings';
 import UserSignup from './UserSignup';
 import AddAccomodation from './AddAccomodation';
+import AccomodationReviews from './AccomodationReviews';
+import AddReview from './AddReview';
 
 
 function App() {
@@ -40,6 +42,16 @@ function App() {
     <Router >
     <div className="app">
       <Switch>
+      <Route path="/add-review">
+      
+     <AddReview />
+      
+     </Route>
+      <Route path="/accomodation-reviews">
+      
+     <AccomodationReviews />
+     
+    </Route>
       <Route path="/add-accomodation">
       <Header />
      <AddAccomodation />

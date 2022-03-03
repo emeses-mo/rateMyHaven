@@ -7,8 +7,14 @@ import getCenter from "geolib/es/getCenter";
 import pin from './Images/pin.png'
 import { useStateValue } from './StateProvider'
 import ReactMapGL ,{Marker ,Map } from 'react-map-gl'
+import mapboxgl from "mapbox-gl"; 
+// @ts-ignore
+
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 
 function DisplayListings() {
+  
 
     const [reviews,setReviews]= useState([])
     const [accomodations,setAccomodations]=useState([])
@@ -16,9 +22,54 @@ function DisplayListings() {
     const [lats,setLats]=useState('')
     const [longs,setLongs]=useState('')
     const uniSelected = localStorage.getItem('UniversityClicked').replace(/"/g, "")
-    
+    const [aptCheck,setAptCheck]= useState(false)
+    const [hostelcheck,sethosteCheck]= useState(false)
+    const [pgCheck,setpgCheck]= useState(false)
     const [{ user },dispatch]= useStateValue();
-    
+   const setFilter= ()=>{
+      if(aptCheck == true)
+      {
+        db.collection(uniSelected).where("Type","==","apartment").onSnapshot((querySnapshot)=>{
+          const acc=[]
+          querySnapshot.forEach((doc)=>{
+            acc.push(doc.data())
+          })
+          setAccomodations(acc)
+          console.log("apt Checked =",aptCheck)
+        })
+      }
+      else if(hostelcheck == true)
+      {
+        db.collection(uniSelected).where("Type","==","hostel").onSnapshot((querySnapshot)=>{
+          const acc=[]
+          querySnapshot.forEach((doc)=>{
+            acc.push(doc.data())
+          })
+          setAccomodations(acc)
+          console.log("apt Checked =",aptCheck)
+        })
+      }
+      else if(pgCheck ==  true){
+        db.collection(uniSelected).where("Type","==","pg").onSnapshot((querySnapshot)=>{
+          const acc=[]
+          querySnapshot.forEach((doc)=>{
+            acc.push(doc.data())
+          })
+          setAccomodations(acc)
+          console.log("apt Checked =",aptCheck)
+        })
+
+      }
+      else{
+        db.collection(uniSelected).onSnapshot((querySnapshot)=>{
+          const acc=[]
+          querySnapshot.forEach((doc)=>{
+            acc.push(doc.data())
+          })
+          setAccomodations(acc)
+        })
+      }
+   }
     useEffect(()=>{
         // db.collection("Reviews").doc(uniSelected).collection("review").onSnapshot((querySnapshot)=>{
         //     const r=[]
@@ -36,13 +87,19 @@ function DisplayListings() {
       //    setAccomodations(a)
       //  })
 
-      db.collection(uniSelected).onSnapshot((querySnapshot)=>{
+        if(aptCheck === true){
+          
+        }
+        else{
+           db.collection(uniSelected).onSnapshot((querySnapshot)=>{
         const acc=[]
         querySnapshot.forEach((doc)=>{
           acc.push(doc.data())
         })
         setAccomodations(acc)
       })
+        }
+     
       auth.onAuthStateChanged((authUser)=>{
         console.log("user here issss>.",authUser)
     })
@@ -89,6 +146,11 @@ function DisplayListings() {
 
 
     console.log("Coordinates: ",coords)
+   
+    const setAccomodation=(name)=>{
+      console.log(name)
+      localStorage.setItem("Accomodation",JSON.stringify(name))
+    }
     
   return <div className='dl_main'>
     <div className="dl_uniheading">
@@ -107,17 +169,20 @@ function DisplayListings() {
               <h2>Filter Your Results</h2>
               <div className="filter_chk">
                
-              <input type="checkbox" name="Apartment" id="" /> <span className='checkMark'></span> <p>Apartment</p>
+              <input type="checkbox" name="Apartment" id="" checked={aptCheck} onChange={e=>setAptCheck(!aptCheck)} /> <span className='checkMark'></span> <p>Apartment</p>
               </div>
               <div className="filter_chk">
                
-              <input type="checkbox" name="Apartment" id="" /> <span className='checkMark'></span> <p>Hostel</p>
+              <input type="checkbox" name="hostel" id="" checked={hostelcheck} onChange={e=>sethosteCheck(!hostelcheck)} /> <span className='checkMark'></span> <p>Hostel</p>
               </div>
               <div className="filter_chk">
                
-              <input type="checkbox" name="Apartment" id="" /><span className='checkMark'></span> <p>Paying Guest</p>
+              <input type="checkbox" name="pg" id="" checked={pgCheck} onChange={e=>setpgCheck(!pgCheck)} /><span className='checkMark'></span> <p>Paying Guest</p>
               </div>
-              
+              <div className="filter_button">
+                 <button onClick={setFilter}>Filter Results</button >
+              </div>
+             
             </div>
           <div className="dl_content">
      
@@ -129,7 +194,7 @@ function DisplayListings() {
                   <img src={accomodation.url} alt="" />
                 </div>
                 <div className="acc_primary">
-                   <h2>{accomodation.Name}</h2>
+                   <h2 onClick={e=>setAccomodation(accomodation.Name)}><Link to="/accomodation-reviews">{accomodation.Name}</Link> </h2>
                    <h3>Type :{accomodation.Type}</h3>
                    <h3>Number Of Rooms : {accomodation.rooms}</h3>
                 </div>
@@ -149,7 +214,7 @@ function DisplayListings() {
             
             /> */}
             <ReactMapGL {...viewport} style={{width: 600, height: 400}}
-    mapStyle="mapbox://styles/mapbox/streets-v9"    mapboxAccessToken="pk.eyJ1IjoiZW1lc2VzLW1vIiwiYSI6ImNremd3aGRyejAwZmoyb3F1MTUybzhiZGcifQ.gEDe7mISUHA83evvU1gR-g" onMove={(vp)=>{
+    mapStyle="mapbox://styles/mapbox/streets-v9"    mapboxAccessToken="pk.eyJ1IjoiZW1lc2VzLW1vIiwiYSI6ImNrenMwcWhsYzBscHEzMHBhYzhpdHB6eWcifQ.vywsREJh34rnJ1x-W1wW9A" onMove={(vp)=>{
       setViewport(vp)
       
     }}   > 
