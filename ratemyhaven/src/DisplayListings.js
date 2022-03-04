@@ -60,6 +60,7 @@ function DisplayListings() {
         })
 
       }
+   
       else{
         db.collection(uniSelected).onSnapshot((querySnapshot)=>{
           const acc=[]
@@ -233,7 +234,7 @@ function DisplayListings() {
           
         </div>
         <div className="dl_addacc">
-          <h3>Cant find your accomodation? {user ? <Link to="/add-accomodation" className='nodec'>Add it now!</Link> : <Link>Login to add a new accomodation!</Link> } </h3>
+          <h3>Cant find your accomodation? {user ? <Link to="/add-accomodation" className='nodec'>Add it now!</Link> : <Link to='/user-login'>Login to add a new accomodation!</Link> } </h3>
         </div>
         </div>
          

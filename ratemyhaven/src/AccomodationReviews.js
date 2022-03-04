@@ -6,6 +6,7 @@ import empty from './Images/Empty.svg'
 import './AccomodationReviews.css'
 import {Link} from 'react-router-dom'
 import profile from './Images/profile.png'
+import { useStateValue } from './StateProvider'
 import gs from './Images/gstar.png'
 function AccomodationReviews() {
     const [reviews,setReviews]= useState([])
@@ -15,7 +16,7 @@ function AccomodationReviews() {
     const uniSelected = localStorage.getItem('UniversityClicked').replace(/"/g, "")
     const accomSelected = localStorage.getItem('Accomodation').replace(/"/g, "")
 const [clnsavg,setClnsavg]=useState([])
-    
+const [{ user },dispatch]= useStateValue();
     
     useEffect(()=>{
 
@@ -106,7 +107,10 @@ const c=[]
 
                 </div>
                 <div className="add_review">
-                  <Link to="/add-review"><h4>Add another review</h4></Link>  
+                    {
+                            user ?  <Link to="/add-review"><h4>Add another review</h4></Link> : <Link to='/user-login'><h4>Login to add another review</h4></Link> 
+                    }
+                   
                 </div>
 
             </div>

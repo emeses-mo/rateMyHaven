@@ -13,6 +13,8 @@ import UserSignup from './UserSignup';
 import AddAccomodation from './AddAccomodation';
 import AccomodationReviews from './AccomodationReviews';
 import AddReview from './AddReview';
+import Login from './Login';
+import Landing from './Landing';
 
 
 function App() {
@@ -42,6 +44,9 @@ function App() {
     <Router >
     <div className="app">
       <Switch>
+        <Route path='/user-login'>
+          <Login />
+        </Route>
       <Route path="/add-review">
       
      <AddReview />
@@ -76,12 +81,12 @@ function App() {
       <Route path="/unidisplay">
          <Test />
         </Route>
-
+<Route path='/home'>
+  
+</Route>
         <Route path="/">
           <div className="container">
-            <Header />
-          <MainCTA />
-          <Mainpage_cards />
+          <Landing />
           </div>
           
         </Route>
