@@ -53,9 +53,12 @@ font-size: 17px;
 }
 .non_empty_reviews{
 padding: 2%;
+overflow-y: auto;
+height: 80vh;
+border-radius: 12px;
 }
 .reviewCard{
-   background-color: #c7eeff;
+   background-color: #c7eeff    ;
     display: flex;
     font-family: 'Smoolthan',sans-serif;
     border-radius: 12px;
@@ -112,9 +115,55 @@ padding: 2%;
 }
 .avgimg{
     margin-left: 2%;
+    margin-top: 1%;
 }
 .rv_avgrating img{
     width: 15px;
     
     
+}
+.overall_rating{
+    padding: 5%;
+    padding-left: 10%;
+}
+.overall_rating h3{
+    font-size: 22px;
+}
+.rating_br{
+   text-align: center;
+
+   display: flex;
+   justify-content: space-between;
+
+}
+.rbb{
+    
+}
+.overall_rating img{
+    width: 20px ;
+
+}
+.rating_br{
+    display: flex;
+    align-items: center;
+  
+}
+.or_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.or_box button{
+border: none;
+background-color: #c7eeff;
+font-size: 16px;
+width: 110%;
+color: #22aee9;
+}
+.or_box button:hover{
+    cursor: pointer;
+}
+.rv_yos{
+    margin-top: 1%;
+    color: gray;
 }

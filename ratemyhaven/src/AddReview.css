@@ -99,3 +99,13 @@ margin-top: 4%;
     opacity: 0.9;
     border: 1px solid red;
 }
+
+.month_block{
+    display: flex;
+    flex-direction: column;
+    flex: 0.5;
+}
+.duration_wrapper{
+    display: flex;
+    padding: 1%;
+}

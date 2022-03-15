@@ -23,6 +23,8 @@ function AddReview() {
     const [avg,setAvg]=useState('')
     const history = useHistory()
     const [res,setRes]=useState('')
+    const [from,setFrom]=useState('')
+    const [to,setTo]=useState('')
     const test =(e)=>{
         e.preventDefault()
        
@@ -41,14 +43,12 @@ function AddReview() {
         setProximity(value)
     } 
     
-    console.log("cl",cleanliness)
-    console.log("sec",security)
+ 
     
+    console.log("from",from)
+    console.log("to",to)
     
-    console.log("avg",avg)
-    
-    
-    console.log("avg",avg)
+   
     const handleReviewPost=(e)=>{
         e.preventDefault()
         const uid= uuidv4()
@@ -72,7 +72,8 @@ function AddReview() {
                 Proximity:proximity,
                 timestamp:firebase.firestore.FieldValue.serverTimestamp(),
                 Average:k,
-                Duration:duration,
+                StartMonth:from,
+                EndMonth:to,
             }).then(
                 history.push('/accomodation-reviews')
             )
@@ -86,6 +87,9 @@ function AddReview() {
             </div>
             <div className="ar_logo">
                 
+
+
+                
             <Link to='/'><img src={logo} alt="" /></Link>    
             </div>
         </div>
@@ -95,7 +99,19 @@ function AddReview() {
                <div className="review_box">
                    <div className="reviewip ip1">
                        <h2>Duration of stay</h2>
-                        <input type="number" placeholder='Years' value={duration} onChange={e=>setDuration(e.target.value)}/>
+                       <div className="duration_wrapper">
+                            {/* <input type="number" placeholder='Years' value={duration} onChange={e=>setDuration(e.target.value)}/> */}
+                        <div className="month_block">
+                            <label htmlFor="">From</label>
+                        <input type="month" placeholder='' max='2022-03' value={from} onChange={e=>setFrom(e.target.value)} />
+                        </div>
+                        <div className="month_block">
+                            <label htmlFor="">To</label>
+                        <input type="month" placeholder='' max='2022-03' min={from}  value={to} onChange={e=>setTo(e.target.value)}/>
+                        </div>
+                       </div>
+                       
+                        
                    </div>
                    <div className="reviewip ip2">
                        <h2>Review</h2>

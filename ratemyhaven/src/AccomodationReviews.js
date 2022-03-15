@@ -9,24 +9,35 @@ import profile from './Images/profile.png'
 import { useStateValue } from './StateProvider'
 import gs from './Images/gstar.png'
 function AccomodationReviews() {
+    const [total,setTotal] = useState([])
+
     const [reviews,setReviews]= useState([])
     const [name,setName]=useState('')
     const [review,setReview]=useState('')
     const [uniInfo,setUniInfo]= useState([])
+    const [data,setData]=useState([])
     const uniSelected = localStorage.getItem('UniversityClicked').replace(/"/g, "")
     const accomSelected = localStorage.getItem('Accomodation').replace(/"/g, "")
-const [clnsavg,setClnsavg]=useState([])
+const [clnsavg,setClnsavg]=useState('')
+const [secavg,setSecavg]=useState('')
+const [proxavg ,setProxavg]=useState('')
+const [maintavg,setMaintavg]=useState('')
 const [{ user },dispatch]= useStateValue();
     
     useEffect(()=>{
 
         db.collection("uni").doc(uniSelected).collection("Accomodation").doc(accomSelected).collection("reviews").onSnapshot((querySnapshot)=>{
                 const r=[]
+         
                 querySnapshot.forEach((doc)=>{
                     r.push(doc.data())
                })
                  setReviews(r)
-             })
+
+             }
+        
+             
+        )
         db.collection(uniSelected).where("Name","==",accomSelected).onSnapshot((qs)=>{
             const s=[]
             qs.forEach((doc)=>{
@@ -34,14 +45,58 @@ const [{ user },dispatch]= useStateValue();
             })
             setUniInfo(s)
         })
-const c=[]
-    reviews.map((avg)=>{
-      c.push(avg.Cleaniness)
-      console.log('sum',c.length, "val"   )
-      setClnsavg(c)
-    })
+        
+
+    
+// fetch().then(
+//     console.log("dt",data)
+  
+//     // data.map((avg)=>{  
+//     //     console.log('here')  
+                    
+//     //     console.log("CLns>",avg.Cleanliness)
+//     // c.push(avg.Cleanliness)
+//     // t=t + avg.Cleanliness
+//     // console.log(t)
+//     // setClnsavg(t)
+//     // console.log("cvsvs",clnsavg)
+//     // }
+// )
+   
+
+
+  
     },[])
-    console.log("cval",clnsavg)
+
+   
+    const calculate =()=>{
+        
+        const c=[]
+        let t= 0
+        let u=0
+        let v=0
+        let w=0      
+           
+                reviews.map((avg)=>{    
+                    
+                    console.log("CLns>",avg.Cleanliness)
+              c.push(avg.Cleanliness)
+           t=t + avg.Cleanliness
+           console.log("tval",t)
+              u= u+ avg.Proximity
+            v=v+avg.Maintenance
+                w=w+avg.Security
+            })
+            setSecavg(Math.round(((w/reviews.length)*10))/10)
+            setMaintavg(Math.round(((v/reviews.length)*10))/10)
+            setProxavg(Math.round(((u/reviews.length)*10))/10)
+            setClnsavg(Math.round(((t/reviews.length)*10))/10)
+            console.log("Value",clnsavg)    
+                    
+             
+    }
+    
+
     
     const handleSend=(e)=>{
         e.preventDefault()
@@ -103,7 +158,67 @@ const c=[]
                   
                 </div>
                 <div className="overall_rating">
-                    <h3>Rating Breakdown</h3>
+                    <div className="or_box">
+                    <h3>Rating Breakdown </h3><div className="showbreakdown"><button onClick={calculate} >Show Breakdown</button></div>
+                    </div>
+                    
+                    { <div className="ratingwrapper">
+                        <div className="rating_br">
+                            
+                             <div className="rbs">
+                                  <p>Cleanliness  </p>
+                             </div>
+
+                             <div className="rbs">
+                                 {clnsavg}  
+                                 <img src={gs} alt="" />
+                             </div>
+                             
+                        </div>
+                        <div className="rating_br">
+                            
+                            <div className="rbs">
+                                 <p>Proximity  </p>
+                            </div>
+
+                            <div className="rbs">
+                                {proxavg}  
+                                <img src={gs} alt="" />
+                            </div>
+                            
+                       </div>
+                       <div className="rating_br">
+                            
+                            <div className="rbs">
+                                 <p>Maintenance  </p>
+                            </div>
+
+                            <div className="rbs">
+                                {maintavg}  
+                                <img src={gs} alt="" />
+                            </div>
+                            
+                       </div>
+                       <div className="rating_br">
+                            
+                            <div className="rbs">
+                                 <p>Security  </p>
+                            </div>
+
+                            <div className="rbs">
+                                {secavg}  
+                                <img src={gs} alt="" />
+                            </div>
+                            
+                       </div>
+
+                    </div>
+                        
+                        
+                       
+                    
+                        
+                    }
 
                 </div>
                 <div className="add_review">
@@ -133,9 +248,7 @@ const c=[]
                             <div className="rv_name">
                                 <h4>{rev.ReviewBy}</h4>
                             </div>
-                            <div className="rv_yos">
-                                <h5>{rev.Duration} Years</h5>
-                            </div>
+                            
                             <div className="rv_avgrating">
                                 <div className="avgtext">
                                      <h5>{rev.Average}  </h5>
@@ -144,6 +257,9 @@ const c=[]
                                 <img src={gs} alt="" />
                                 </div>
                                
+                            </div>
+                            <div className="rv_yos">
+                                <h5>{rev.StartMonth} to {rev.EndMonth}</h5>
                             </div>
                              
                         </div>
