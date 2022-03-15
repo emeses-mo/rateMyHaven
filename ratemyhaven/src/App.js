@@ -15,6 +15,7 @@ import AccomodationReviews from './AccomodationReviews';
 import AddReview from './AddReview';
 import Login from './Login';
 import Landing from './Landing';
+import DisplayNew from './DisplayNew';
 
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
     <Router >
     <div className="app">
       <Switch>
+        <Route path='/newdisplay'>
+          <DisplayNew />
+        </Route>
         <Route path='/user-login'>
           <Login />
         </Route>
