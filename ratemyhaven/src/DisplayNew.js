@@ -7,7 +7,23 @@ import './DisplayNew.css'
 function DisplayNew() {
     const [{ user },dispatch]= useStateValue();
     const [accomodations,setAccomodations]=useState([])
+    const [aptCheck,setAptCheck]= useState(false)
+    const [hostelcheck,sethosteCheck]= useState(false)
+    const [pgCheck,setpgCheck]= useState(false)
+    const [selected,setSelected]=useState('')
     const uniSelected = localStorage.getItem('UniversityClicked').replace(/"/g, "")
+
+    const test =()=>{
+        db.collection(uniSelected).where("Type","==",selected).onSnapshot((querySnapshot)=>{
+            const acc=[]
+            querySnapshot.forEach((doc)=>{
+              acc.push(doc.data())
+            })
+            setAccomodations(acc)
+        })
+    }
+
+
 
     useEffect(()=>{
         db.collection(uniSelected).onSnapshot((querySnapshot)=>{
@@ -35,18 +51,19 @@ function DisplayNew() {
                     <div className="ndf_head">
                     <h2>Category</h2>
                     </div>
-                    <div className="ndf_opts">
+                    <div className="ndf_opts" onChange={e=>setSelected(e.target.value)}>
+                       
                         <div className="ndf_opt">
                             <label htmlFor="">Apartment</label>
-                            <input type="checkbox" name="" id="" />
+                            <input type="radio" value='apartment' name="category" id="apartment"  />
                         </div>
                         <div className="ndf_opt">
                             <label htmlFor="">Hostel</label>
-                            <input type="checkbox" name="" id="" />
+                            <input type="radio" value='hostel'  name="category" id="" />
                         </div>
                         <div className="ndf_opt">
                             <label htmlFor="">Paying Guest</label>
-                            <input type="checkbox" name="" id="" />
+                            <input type="radio"  value='pg' name="category" id="" />
                         </div>
                     </div>
                 </div>
@@ -75,7 +92,7 @@ function DisplayNew() {
                 </div>
                 <div className="ndf_final">
                      <div className="ndf_apply">
-                    <button>Apply Filter</button>
+                    <button onClick={test}>Apply Filter</button>
                 </div>
                 <div className="ndf_addAcc">
                     <h3>Cant find your accommodation?{user ? <Link to="/add-accomodation" className='nodec spl' >Add it now!</Link> : <Link to='/user-login' className='nodec spl'>Add it now!</Link> }</h3>
