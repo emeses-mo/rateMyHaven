@@ -20,7 +20,8 @@ import Nav1 from './Nav1';
 
 
 function App() {
-  const [{},dispatch] = useStateValue();
+  const [{ user },dispatch]= useStateValue();
+  
   useEffect(() => {
     auth.onAuthStateChanged((authUser)=>{
       console.log("User is>" , authUser);

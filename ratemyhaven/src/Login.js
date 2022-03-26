@@ -9,7 +9,7 @@ function Login() {
     const handleAuth=(e)=>{
         e.preventDefault()
         auth.signInWithEmailAndPassword(name,password).then(
-               history.push('/university-listings')
+               history.push('/')
         
              
         ).catch(error=> alert(error.message))

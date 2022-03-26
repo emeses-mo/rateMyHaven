@@ -5,7 +5,7 @@ import logo from './Images/logoFinal.png'
 import { Link ,useHistory} from 'react-router-dom'
 import { useStateValue } from './StateProvider'
 import profile from './Images/profile.png'
-import { auth } from "./Firebase";
+import { storage,db,auth } from './Firebase';
 import next from './Images/next.png'
 function UserSignup() {
 const [email,setEmail]= useState('')
@@ -15,25 +15,43 @@ const [university,setUniversity]=useState('')
 const history = useHistory()
 const [{ user },dispatch]= useStateValue();
 const [image,setImage]=useState(null)
-
+const [disppic,setDisp]=useState('')
 const handleChange=e=>{
     if(e.target.files[0]){
       setImage(e.target.files[0])
       
     }
-    
+    console.log("URL",disppic)
     
   }
 
     const handleAuth=(e)=>{
         e.preventDefault()
-        auth.createUserWithEmailAndPassword(email,password).then(auth=>{
+        const uploadTask= storage.ref(`ProfileImages/${image.name}`).put(image)
+    uploadTask.on("state_changed",
+      snapshot =>{},
+      error =>{
+        console.log("e>",error)
+      },()=>{
+        storage.ref("ProfileImages").child(image.name).getDownloadURL().then(url=>{
+          setDisp(url)
+         
+          auth.createUserWithEmailAndPassword(email,password).then(auth=>{
             auth.user.updateProfile({
-                displayName :name
+                displayName :name,
+                photoURL:disppic,
             })
             history.push('/')
-
+           
         }).catch(error=> alert(error.message))
+         
+         setImage(null)
+         
+        
+        })
+
+      })
+         console.log("URL",disppic)
     }
 
 
