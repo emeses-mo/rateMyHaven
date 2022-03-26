@@ -7,28 +7,40 @@
 .landing_main{
     font-family: 'Smoolthan',sans-serif;
     font-size: 18px;
+    height: 90vh;
 }
 .landing_logo img{
     width: 7vw;
 }
 .landing_nav{
     display: flex;
-  
+
     justify-content: space-between;
     width: 20%;
 }
 .landing_auth{
     display: flex;
-    width: 9%;
+    width: 100%;
+   
     
     justify-content: space-between;
+}
+.author{
+    
+    flex: 0.15;
+}
+.lgin{
+    margin-right: 4%;
+}
+.landing_auth p{
+    
 }
 .no-dec{
     color: #27b7e7;
 }
 .landing_hero{
     display: flex;
-    height: 90vh;
+    height: 80vh;
 }
 .hero1
 {

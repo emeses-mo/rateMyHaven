@@ -1,61 +1,74 @@
 .userSignup_main{
+    height: 90vh;
     display: flex;
-    background-color: #22aee9;
-}
-.usu_cta{
-    background-color: white;
+    align-items: center;
+    
 }
 .usu_cta img{
-    width: 50vw;
+    width: 40vw;
+
+}
+.usu_cta{
+    text-align: center;
+    flex: 0.5;
+    padding-left: 5%;
+    
 }
 .signup_form{
-    text-align: left;
-   
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-.signup_form p{
-    font-family: 'Roboto',sans-serif;
-    font-size: 25px;
-    margin: 2%;
-    width: 100%;
-}
-.signup_form input{
-    width: 100%;
+    flex: 0.5;
     padding: 2%;
-    padding-left: 3%;
-    border: none;
-    border-radius: 22px;
-    font-size: 15px;
-    font-family: 'Roboto',sans-serif;
-    outline: none;
-    margin: 1%;
-}
-.signup_form input:focus{
-  border: 2px solid green;
-  animation: blink 1s;
-  animation-iteration-count: 3;
-}
-.signup_form button{
-    width: 50%;
-    padding: 3%;
-    margin: 1%;
-    margin-top: 7%;
-    border: none;
-    border-radius: 22px;
-    text-align: center;
-    float: right;
-    font-family: 'Roboto',sans-serif;
-    font-size: 14px;
+     
+    
 
 }
-.signup_form button:hover{
-    cursor: pointer;
+.upload_img{
+    text-align: center;
+    display: block;
+    
+}
+.upload_img img{
+    width: 130px;
+    height: 130px;
+    border-radius:50% ;
+}
+.img_input input[type='file']{
+    color: white;
+
+}
+.register_form{
+    padding: 2%;
+   
    
 }
+.register_form p{
+    font-family: 'Smoolthan',sans-serif;
+    padding: 1% 0;
+}
+.register_form input{
+    padding: 1.5%;
+    outline: none;
+    width: 90%;
+    border-radius: 12px;
+    font-family: 'Smoolthan',sans-serif;
+    border: 1px solid rgb(77, 72, 72);
+}
+
+.su_button img{
+    width: 50px;
+}
+.su_button{
+    margin-top: 2%;
+}
+.su_button button:hover{
+    cursor: pointer;
+}
+.su_button button{
+    background-color: #27b7e7;
+    outline: none;
+    border: none;
+    padding: 1%;
+    border-radius: 17px;
+    box-shadow: -2px 4px 25px -7px rgba(0,0,0,0.5);
 
 
-
-@keyframes blink { 50% { border-color:#fff ; }  }
+}

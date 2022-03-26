@@ -99,12 +99,26 @@
 }
 .ndrc_secondary{
     margin-top: 3%;
-    height:20vh ;
+    height:18vh ;
     width: 24vw;
 
 }
-
+.ndrc_extras img{
+    width: 20px;
+    
+}
+.ndrc_extras{
+    float: right;
+}
+.ndrc_extras:hover{
+    cursor: pointer;
+}
 
 .nd_map{
     flex: 0.3;
+    
+    overflow: hidden;
+}
+.map_marker:hover{
+    cursor: pointer;
 }

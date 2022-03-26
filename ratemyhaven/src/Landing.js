@@ -3,14 +3,22 @@ import logo from './Images/logoFinal.png'
 import './Landing.css'
 import cta from "./Images/CTA.svg"
 import search from './Images/search.png'
-import { db } from "./Firebase";
-import { Link } from 'react-router-dom';
+import { auth,db } from "./Firebase";
+import { useStateValue } from './StateProvider'
+import { Link, useHistory } from "react-router-dom";
+
 function Landing() {
     const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const [uniNames,setUninames] = useState([])
-
-  
+  const [{ user },dispatch]= useStateValue();
+  const history = useHistory()
+  const handlesignout =()=>{
+    if(user){
+      auth.signOut();
+      history.push('/')
+  }
+  }
 
   useEffect(()=>{
     db.collection("Universities").onSnapshot((querySnapshot)=>{
@@ -20,6 +28,7 @@ function Landing() {
       })
 setUninames(uniData)
     })
+    
   },[])
   function handleSearchClick(uniname){
     localStorage.setItem("UniversityClicked",JSON.stringify(uniname))
@@ -45,21 +54,7 @@ setUninames(uniData)
 
   return (
     <div className='landing_main'>
-        <div className="landing_header">
-            <div className="landing_logo">
-                <img src={logo} alt="" />    
-            </div>
-            <div className="landing_nav">
-              <Link to='/' className='no-dec'><p>Home</p></Link>  
-                <p>My Reviews</p>
-                <p>About</p>    
-            </div>
-            <div className="landing_auth">
-             <Link className='no-dec' to='user-login'><p>Login</p></Link>   
-                <p>|</p>
-            <Link className='no-dec' to='user-signup'> <p>Sign up</p></Link>   
-            </div>
-        </div>
+       
         
         <div className="landing_hero">
             <div className="hero1">

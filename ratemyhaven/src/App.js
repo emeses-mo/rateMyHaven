@@ -16,6 +16,7 @@ import AddReview from './AddReview';
 import Login from './Login';
 import Landing from './Landing';
 import DisplayNew from './DisplayNew';
+import Nav1 from './Nav1';
 
 
 function App() {
@@ -69,15 +70,15 @@ function App() {
     <Route path="/test">
       {/* <Header />
      <AddAccomodation /> */}
-     <Test />
+
+    <Nav1 />
     </Route>
       <Route path="/user-signup">
-     
+      <Nav1 />
          <UserSignup />
         </Route>
       <Route path="/university-listings">
-      <Header />
-         <DisplayListings />
+      <DisplayNew />
         </Route>
       <Route path="/service-addUni">
          <BackDoorAddUnis />
@@ -90,6 +91,7 @@ function App() {
 </Route>
         <Route path="/">
           <div className="container">
+          <Nav1 />
           <Landing />
           </div>
           
