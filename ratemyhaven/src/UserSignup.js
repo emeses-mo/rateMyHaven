@@ -41,6 +41,12 @@ const handleChange=e=>{
                 displayName :name,
                 photoURL:disppic,
             })
+            db.collection('Users').doc(auth.user.uid).set({
+              id:auth.user.uid,
+              Name:name,
+              Email:email,
+              University:university,
+            })
             history.push('/')
            
         }).catch(error=> alert(error.message))

@@ -1,0 +1,27 @@
+.mr_main{
+    padding: 2% 3%;
+    font-family: 'Smoolthan',sans-serif;
+}
+.myr{
+    display: flex;
+    margin-top: 2%;
+    border: 0.75px solid #35b7e8;
+    padding: 1%;
+    border-radius: 8px;
+}
+.myr_ts{
+    flex: 0.2;
+    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid gray;
+}
+.myr_rev{
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 1%;
+}

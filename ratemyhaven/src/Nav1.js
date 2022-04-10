@@ -38,13 +38,13 @@ function Nav1() {
             </div>
             <div className="landing_nav">
               <Link to='/' className='no-dec'><p>Home</p></Link>  
-                <p>My Reviews</p>
+              <Link className='nodec' to='/my-reviews'> <p>My Reviews</p></Link> 
                 <p>About</p>    
             </div>
             <div className="author">
             {/* <button onClick={handlesignout} >Logout</button> */}
               {
-                  dname ? <div className='dropdown'><p className='dropbtn'>Hello {dname}  </p> <div className="dropdown-content"><p>Manage Profile</p> <p onClick={handlesignout}>Logout</p></div></div>   : <div className="landing_auth lgin"><Link className='no-dec' to='/user-login'><p>Login</p></Link>   
+                  user ? <div className='dropdown'><p className='dropbtn'> {user?.displayName} <img src={dp} alt="" /> </p> <div className="dropdown-content"><p>Manage Profile</p> <p onClick={handlesignout}>Logout</p></div></div>   : <div className="landing_auth lgin"><Link className='no-dec' to='/user-login'><p>Login</p></Link>   
                   <p>|</p>
               <Link className='no-dec ' to='/user-signup'> <p>Sign up</p></Link>   </div>
               }

@@ -17,6 +17,7 @@ import Login from './Login';
 import Landing from './Landing';
 import DisplayNew from './DisplayNew';
 import Nav1 from './Nav1';
+import MyReviews from './MyReviews';
 
 
 function App() {
@@ -47,6 +48,14 @@ function App() {
     <Router >
     <div className="app">
       <Switch>
+        <Route path='/my-reviews'>
+       
+          {
+            user ? <div>  <Nav1 /><MyReviews /></div>  : <Login />
+          
+          }
+         
+        </Route>
         <Route path='/newdisplay'>
           <DisplayNew />
         </Route>
@@ -54,8 +63,10 @@ function App() {
           <Login />
         </Route>
       <Route path="/add-review">
-      
-     <AddReview />
+      {
+        user ?  <AddReview /> :  <Login />
+      }
+    
       
      </Route>
       <Route path="/accomodation-reviews">
@@ -64,8 +75,11 @@ function App() {
      
     </Route>
       <Route path="/add-accomodation">
-      <Header />
-     <AddAccomodation />
+        {
+          user ? <div><Header />
+          <AddAccomodation /></div> : <Login />
+        }
+      
      
     </Route>
     <Route path="/test">

@@ -61,6 +61,18 @@ function AddReview() {
            setRes(result.score)
            console.log(res)
            const k= ((cleanliness+maintenance+security+proximity)+(res))/5
+           db.collection(authUser.uid).doc(uid).set({
+            id:uid,
+            TextualReview: textreview,
+            Cleanliness:cleanliness,
+            Maintenance:maintenance,
+            Security:security,
+            Proximity:proximity,
+            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+            Average:k,
+            StartMonth:from,
+            EndMonth:to,
+           })
             db.collection("uni").doc(uniSelected).collection("Accomodation").doc(accomSelected).collection("reviews").doc(uid).set({
                 id:uid,
                 ReviewBy:authUser.displayName,

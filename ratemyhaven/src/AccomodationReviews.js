@@ -116,7 +116,7 @@ const [{ user },dispatch]= useStateValue();
 
         <div className="ar_header">
             <div className="ar_uni">
-                <h1>{uniSelected}</h1>
+            <Link className='nodec' to='/university-listings'><h1>{uniSelected}</h1></Link>    
             </div>
             <div className="ar_logo">
                <Link to="/"><img src={logo} alt="" /></Link> 

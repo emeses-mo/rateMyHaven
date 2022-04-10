@@ -3,6 +3,9 @@
     height: 10vh;
    
 }
+.author{
+  
+}
 .dropdown {
     float: left;
     overflow: hidden;
@@ -44,4 +47,19 @@
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+  .dropbtn img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+ 
+  }
+  .dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+  .dropdown{
+    width: 100%;
   }
