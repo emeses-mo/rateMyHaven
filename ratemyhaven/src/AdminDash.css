@@ -1,0 +1,103 @@
+.admin_header{
+    height: 10vh;
+
+display: flex;
+justify-content: space-between;
+padding: 0 2%;
+align-items: center;
+border-bottom: 0.2px solid rgb(239, 239, 239);
+}
+
+.admin_logo img{
+width: 8vw;
+}
+.admin_content{
+    border-bottom: 1px solid rgb(239, 239, 239);
+}
+.admin_title input{
+    width: 500px;
+    padding: 1.5%;
+    border-radius: 8px;
+    outline: none;border: 0.5px solid rgb(241, 235, 235);
+    background-color: rgb(235, 235, 235);
+}
+.admin_logout button{
+    padding: 6% 4%;
+    font-family: 'Smoolthan',sans-serif;
+    width: 100px;
+    border-radius: 22px;
+    border: none;
+    background-color: #35b7e8;
+    font-size: 14px;
+}
+.admin_logout button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.admin_content{
+    padding: 2%;
+display: flex;
+flex-wrap: wrap;
+}
+.dash_card{
+    width: 20%;
+ position: relative;
+    display: block;
+    text-align: center;
+    font-family: 'Smoolthan',sans-serif;
+    border: 1px solid #35b7e8;
+    border-radius: 12px;
+    margin: 1%;
+    top: 0;
+    transition: top ease 0.5s;
+}
+.dash_card:hover{
+    top: -10px;
+}
+.cardname p{
+    font-size: 16px;
+   
+}
+.cardname{
+    padding: 2%;
+    border-bottom: 0.5px solid #35b7e8;
+}
+.cardsummary p{
+    font-size: 20px;
+}
+.cardsummary{
+    padding: 2%;
+
+}
+.addUni p{
+    font-size: 20px;
+    font-family: 'Smoolthan',sans-serif;
+}
+.addUni input{
+    padding: 0.25%;
+    border-radius: 6px;
+    border: none;
+    background-color: #e0f1f8;
+    outline: none;
+    padding: 1%;
+    width: 25%;
+}
+.admin_adduni{
+    margin: 3%;
+    
+}
+.addUni{
+
+  
+}
+.addUni_button button{
+    padding: 0.5%;
+    background-color: #35b7e8;
+    margin-top: 2%;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.addUni_button button:hover{
+    cursor: pointer;
+}

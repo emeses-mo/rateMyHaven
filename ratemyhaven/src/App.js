@@ -18,6 +18,7 @@ import Landing from './Landing';
 import DisplayNew from './DisplayNew';
 import Nav1 from './Nav1';
 import MyReviews from './MyReviews';
+import AdminDash from './AdminDash';
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
     <Router >
     <div className="app">
       <Switch>
+        <Route path='/admin-dashboard'>
+            <AdminDash />
+        </Route>
         <Route path='/my-reviews'>
        
           {
