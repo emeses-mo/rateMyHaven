@@ -5,6 +5,7 @@ import logo from './Images/logoFinal.png'
 import { Link ,useHistory} from 'react-router-dom'
 import { useStateValue } from './StateProvider'
 import { auth } from "./Firebase";
+import profile from './Images/profile.png'
 import './Nav1.css'
 function Nav1() {
     const [{ user },dispatch]= useStateValue();
@@ -44,7 +45,7 @@ function Nav1() {
             <div className="author">
             {/* <button onClick={handlesignout} >Logout</button> */}
               {
-                  user ? <div className='dropdown'><p className='dropbtn'> {user?.displayName} <img src={dp} alt="" /> </p> <div className="dropdown-content"><p>Manage Profile</p> <p onClick={handlesignout}>Logout</p></div></div>   : <div className="landing_auth lgin"><Link className='no-dec' to='/user-login'><p>Login</p></Link>   
+                  user ? <div className='dropdown'><p className='dropbtn'> {user?.displayName} {user?.photoURL ? <img src={user?.photoURL} alt="" /> : <img src={profile} alt="" /> }</p> <div className="dropdown-content"><Link className='nodec' to='/manage-profile'><p>Manage Profile</p></Link>  <p onClick={handlesignout}>Logout</p></div></div>   : <div className="landing_auth lgin"><Link className='no-dec' to='/user-login'><p>Login</p></Link>   
                   <p>|</p>
               <Link className='no-dec ' to='/user-signup'> <p>Sign up</p></Link>   </div>
               }

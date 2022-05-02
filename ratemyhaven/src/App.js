@@ -19,6 +19,7 @@ import DisplayNew from './DisplayNew';
 import Nav1 from './Nav1';
 import MyReviews from './MyReviews';
 import AdminDash from './AdminDash';
+import ManageProfile from './ManageProfile';
 
 
 function App() {
@@ -49,6 +50,10 @@ function App() {
     <Router >
     <div className="app">
       <Switch>
+        <Route path='/manage-profile'>
+        <Nav1 />
+          <ManageProfile />
+        </Route>
         <Route path='/admin-dashboard'>
             <AdminDash />
         </Route>

@@ -16,6 +16,7 @@ const history = useHistory()
 const [{ user },dispatch]= useStateValue();
 const [image,setImage]=useState(null)
 const [disppic,setDisp]=useState('')
+console.log("dpurl",disppic)
 const handleChange=e=>{
     if(e.target.files[0]){
       setImage(e.target.files[0])
@@ -32,32 +33,63 @@ const handleChange=e=>{
       snapshot =>{},
       error =>{
         console.log("e>",error)
-      },()=>{
+      },
+      ()=>{
         storage.ref("ProfileImages").child(image.name).getDownloadURL().then(url=>{
           setDisp(url)
-         
+         console.log(disppic)
           auth.createUserWithEmailAndPassword(email,password).then(auth=>{
             auth.user.updateProfile({
                 displayName :name,
-                photoURL:disppic,
+                
             })
+            
+            console.log("dpp",disppic)
             db.collection('Users').doc(auth.user.uid).set({
               id:auth.user.uid,
               Name:name,
               Email:email,
               University:university,
+              url:disppic,
             })
             history.push('/')
            
         }).catch(error=> alert(error.message))
          
+            // auth.createUserWithEmailAndPassword(email,password).then(auth=>{
+            //   console.log("User Created")
+            // }).catch(error => console.log(error.message))
+            // auth.onAuthStateChanged((authUser)=>{
+            //   authUser.updateProfile({
+            //     displayName:name,
+            //     photoURL:disppic,
+            //   })
+            //   db.collection('Users').doc(auth.user.uid).set({
+            //           id:auth.user.uid,
+            //           Name:name,
+            //           Email:email,
+            //           University:university,
+            //           url:disppic,
+            //         })
+            //         history.push('/')
+            // })
+
+
+
+
          setImage(null)
-         
+        //  auth.onAuthStateChanged((authUser)=>{
+        //    authUser.updateProfile({
+        //      photoURL: disppic,
+        //    })
+        //  })
+
+
         
         })
 
       })
-         console.log("URL",disppic)
+         
     }
 
 
@@ -68,6 +100,7 @@ const handleChange=e=>{
           <img src={signup} alt="" />
       </div>
       <div className="signup_form">
+      <form action="">
           <div className="upload_img">
               <div className="img_preview">
               {image == null ? <img src={profile} alt="" />: <img src={URL.createObjectURL(image)} alt="" /> } 
@@ -81,7 +114,7 @@ const handleChange=e=>{
             
           </div>
           <div className="register_form">
-          <form action="">
+         
           <p>What's Your Name?</p>
           <input type="text" value={name} onChange={e=>setName(e.target.value)} />
           <p>Where Do You Study?</p>
@@ -94,9 +127,9 @@ const handleChange=e=>{
             <button onClick={handleAuth}> <img src={next} alt="" /> </button>
         </div>
         
-      </form>
+      
           </div>
-         
+          </form>
 
       </div>
       
