@@ -1,5 +1,68 @@
-.compa img{
-    width: 200px;
-    height: 200px;
+.mp_img img{
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    border: 1px solid black;
+}
+.mp_img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.manageprofile_main{
+    display: flex;
+}
+.seca{
+    flex: 0.2;
+
+    border-right: 1px solid rgb(212, 207, 207);
+    height: 90vh;
+}
+.mp_navitems{
+    text-align: center;
+    margin-top: 10%;
+    background-color: #25ace3;
+    padding: 3%;
+}
+.mp_navitems:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.mp_navitems p{
+    font-family: "Smoolthan",sans-serif;
+    font-size: 17px;
+}
+.secb{
+    flex: 0.8;
+    font-family: "Smoolthan",sans-serif;
+    padding: 2%;
+}
+.mp_editblock{
+    display: flex;
+    align-items: center;
+  margin-top: 3%;
+  border: 1px solid #25ace3;
+  width: 40%;
+  border-radius: 8px;
+  padding: 2%;
+}
+.mp_accdetails{
+    padding-left: 2%;
+    margin-top: 3%;
+}
+.mp_detail h5{
+    font-size: 18px;
+}
+.mp_editbtn {
+    margin-left: 5%;
+}
+.mp_editbtn img{
+   width: 20px;
+}
+.mp_editbtn button{
+    background-color: white;
+    border: none;
+}
+.mp_editbtn button:hover{
+    cursor: pointer;
 }

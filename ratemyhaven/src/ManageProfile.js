@@ -5,6 +5,7 @@ import { storage,db,auth } from './Firebase';
 import profile from './Images/profile.png'
 import { useStateValue } from './StateProvider'
 import "./ManageProfile.css"
+import edit from './Images/edit.png'
 function ManageProfile() {
     const [open, setOpen] = useState(false);
     const [image,setImage]=useState(null)
@@ -90,7 +91,7 @@ uploadTask.on("state_changed",
   },[])
   return (
     <div className='manageprofile_main'>
-        <h2>Manage Profile</h2>
+        {/* <h2>Manage Profile</h2>
         <div className="compa">
             <p>Update Details</p>
             
@@ -113,12 +114,67 @@ uploadTask.on("state_changed",
             
             
             <button onClick={onOpenModal}>Open</button>
-            <Modal open={open} onClose={onCloseModal} center>
-        <h2>Simple centered modal</h2>
-      </Modal>
+            
         </div>
         <div className="compb">
 
+        </div> */}
+        <div className="seca">
+          <div className="mp_img">
+            {user?.photoURL ?  <img src={user?.photoURL} alt="" /> : <img src={profile} alt="" /> }
+            <p>{user?.displayName}</p>
+          </div>
+          <div className="mp_nav">
+            <div className="mp_navitems">
+              <p>Account</p>
+              
+            </div>
+          </div>
+        </div>
+        <div className="secb">
+        <h3>Account Settings</h3>
+        <div className="mp_accdetails">
+         <div className="mp_editblock">
+          <div className="mp_detail">
+            <p>Name</p>
+            <h5>Mohammed Sameer</h5>
+
+          </div>
+          <div className="mp_editbtn">
+            <button onClick={onOpenModal}><img src={edit} alt="" /></button>
+          </div>
+          <Modal open={open} onClose={onCloseModal} center>
+        <h2>Simple centered modal</h2>
+      </Modal>
+
+         </div>
+         <div className="mp_editblock">
+          <div className="mp_detail">
+            <p>University</p>
+            <h5>Christ University, Bangalore</h5>
+
+          </div>
+          <div className="mp_editbtn">
+           
+          </div>
+          <Modal open={open} onClose={onCloseModal} center>
+        <h2>Simple centered modal</h2>
+      </Modal>
+
+         </div>
+         <div className="mp_editblock">
+          <div className="mp_detail">
+            <p>Email</p>
+            <h5>{user?.email}</h5>
+
+          </div>
+          
+          <Modal open={open} onClose={onCloseModal} center>
+        <h2>Simple centered modal</h2>
+      </Modal>
+
+         </div>
+        </div>
         </div>
     </div>
   )

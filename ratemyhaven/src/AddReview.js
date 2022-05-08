@@ -7,9 +7,21 @@ import logo from "./Images/log.svg"
 import {auth, db,serverTimestamp } from './Firebase';
 import { v4 as uuidv4 } from "uuid";
 import { Link,useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import Sentiment from 'sentiment'
 var sentiment = new Sentiment();
+
 function AddReview() {
+    const   warn = () => toast.warn('⚠️ Fill All Input Fields', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     const uniSelected = localStorage.getItem('UniversityClicked').replace(/"/g, "")
     const accomSelected = localStorage.getItem('Accomodation').replace(/"/g, "")
     const [cleanliness,setCleanliness]= useState('')
@@ -51,7 +63,8 @@ function AddReview() {
    
     const handleReviewPost=(e)=>{
         e.preventDefault()
-        const uid= uuidv4()
+        if(cleanliness!='' && proximity!='' && maintenance!='' && security!='' && textreview!='' && from!='' && to!=''){
+            const uid= uuidv4()
        
        
         auth.onAuthStateChanged((authUser)=>{
@@ -90,6 +103,11 @@ function AddReview() {
                 history.push('/accomodation-reviews')
             )
         })
+
+        }else{
+          alert("Fill All Input Fields")
+        }
+        
     }
   return (
     <div className='addreview_main'>

@@ -84,7 +84,64 @@ flex-wrap: wrap;
 }
 .admin_adduni{
     margin: 3%;
+    font-family: 'Smoolthan',sans-serif;
+}
+.admin_adduni h3{
+    padding-left:1.5% ;
+}
+.unireq_card{
+    border: 1px solid #35b7e8;
+    width: 20vw;
+   font-family: 'Smoolthan',sans-serif;
+    border-radius: 12px;
+    margin: 1%;
+}
+.uni_title{
+    text-align: center;
+    padding: 3%;
+    border-bottom: 1px solid #35b7e8;
+}
+.unireq_buttons{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding: 5%;
+
+}
+.unireq_buttons button{
+    width: 8vw;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Smoolthan',sans-serif;
+    padding: 2%;
+}
+.unireq_reject button{
+    background-color: rgb(114, 215, 114);
     
+    
+
+}
+.admin_unireq{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.unicard_info{
+    padding: 3%;
+    font-size: 14px;
+    text-align: center;
+}
+.unireq_buttons button:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.unireq_accept button{
+    background-color: rgb(235, 55, 55);
+    
+    
+
 }
 .addUni{
 
@@ -93,7 +150,7 @@ flex-wrap: wrap;
 .addUni_button button{
     padding: 0.5%;
     background-color: #35b7e8;
-    margin-top: 2%git ;
+    margin-top: 2% ;
     border: none;
     border-radius: 10px;
     font-size: 15px;

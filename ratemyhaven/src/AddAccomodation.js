@@ -5,8 +5,23 @@ import home from './Images/addHome.svg'
 import { storage,db,auth } from './Firebase';
 import MapPicker from 'react-google-map-picker'
 import { Link ,useHistory} from 'react-router-dom'
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function AddAccomodation() {
+
+const   warn = () => toast.warn('⚠️ Fill All Input Fields', {
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  });
+
+
+
+
   const history = useHistory()
   const [name,setName]= useState('')
   const [acctype,setaccType]= useState('')
@@ -39,7 +54,8 @@ const DefaultZoom = 10;
   }
   const handleUpload=(e)=>{
     e.preventDefault()
-    const uid= uuidv4()
+    if(name!= null && acctype!=null && desc!=null && image!=null && rooms!=null){
+      const uid= uuidv4()
     const uploadTask= storage.ref(`accomodationImages/${image.name}`).put(image)
     uploadTask.on("state_changed",
       snapshot =>{},
@@ -86,6 +102,15 @@ const DefaultZoom = 10;
     
    
     console.log("url",url)
+
+    }
+    else{
+     warn()
+
+
+
+    }
+    
   }
   
   function handleChangeLocation (lat, lng){
@@ -163,8 +188,18 @@ const DefaultZoom = 10;
      <div className="aa_cta">
     <img src={home} alt="" />
      </div>
-     
-  </div>;
+     <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+  </div>
 }
 
 export default AddAccomodation;

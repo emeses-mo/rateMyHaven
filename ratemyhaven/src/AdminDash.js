@@ -67,31 +67,94 @@ function AdminDash() {
             </div>
             <div className="dash_card">
                 <div className="cardname">
-                    <p>Card Title</p>
+                    <p>Total Users</p>
 
                 </div>
                 <div className="cardsummary">
-                    <p>12</p>
+                    <p>133</p>
                 </div>
             </div>
             <div className="dash_card">
                 <div className="cardname">
-                    <p>Card Title</p>
+                    <p>Total Reviews</p>
 
                 </div>
                 <div className="cardsummary">
-                    <p>12</p>
+                    <p>67</p>
                 </div>
             </div>
         </div>
         <div className="admin_adduni">
-            <div className="addUni">
+            <h3>Univeristy Requests</h3>
+            <div className="admin_unireq">
+                <div className="unireq_card">
+                    <div className="uni_title">
+                        <p>St Johns University, Bangalore</p>
+                    </div>
+                    <div className="unicard_info">
+                        <p>Requested By : Mohammed Sameer</p>
+                        <p>Date Requested : 13 March 2022</p>
+                    </div>
+                    <div className="unireq_buttons">
+                        <div className="unireq_accept">
+                            <button>Reject</button>
+
+                        </div>
+                        <div className="unireq_reject">
+                            <button>Accept</button>
+                        </div>
+
+            
+                    </div>
+                </div>
+                <div className="unireq_card">
+                    <div className="uni_title">
+                        <p>Chirst University, Bangalore</p>
+                    </div>
+                    <div className="unicard_info">
+                        <p>Requested By : Jeffin Jose</p>
+                        <p>Date Requested : 12 March 2022</p>
+                    </div>
+                    <div className="unireq_buttons">
+                        <div className="unireq_accept">
+                            <button>Reject</button>
+
+                        </div>
+                        <div className="unireq_reject">
+                            <button>Accept</button>
+                        </div>
+
+            
+                    </div>
+                </div>
+                <div className="unireq_card">
+                    <div className="uni_title">
+                        <p>Reva University, Bangalore</p>
+                    </div>
+                    <div className="unicard_info">
+                        <p>Requested By : Alen Jojo</p>
+                        <p>Date Requested : 11 March 2022</p>
+                    </div>
+                    <div className="unireq_buttons">
+                        <div className="unireq_accept">
+                            <button>Reject</button>
+
+                        </div>
+                        <div className="unireq_reject">
+                            <button>Accept</button>
+                        </div>
+
+            
+                    </div>
+                </div>
+            </div>
+            {/* <div className="addUni">
                 <p>University Name</p>
                 <input type="text" value={uniname} onChange={e=>setUniName(e.target.value)}/>
                 <div className="addUni_button">
                     <button onClick={addUni}>Add University</button>
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
   )
